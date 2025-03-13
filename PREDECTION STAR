@@ -1,0 +1,34 @@
+# Display the welcome message with symbols and creator's name
+    print
+    print("***   Welcome to The Star's  World ***")
+    print("***        Created by PREDECTION STAR 💖 ***")
+    print("************************************\n")
+
+def calculate_sum_of_digits(period_number):
+    # Convert the period number to a string to sum the digits
+    digits = [int(digit) for digit in str(period_number)]
+    return sum(digits) % 10  # Keep the sum under 10
+
+def get_prediction(sum_digits):
+    # Prediction rules based on the sum of digits
+    if sum_digits in [0, 1, 2, 3, 4]:
+        return "Small 🧩", (sum_digits + 3) % 4 # Predicted Jackpot in small range
+    else:
+        return "Big ☠", (sum_digits + 5) % 6 + 6  # Predicted Jackpot in big range
+
+# Main execution
+display_welcome_message()  # Display welcome message with the creator's name
+
+# Input a 5-digit number
+period_number = int(input("Enter a 5-digit number: "))
+
+# Step 1: Calculate the sum of digits
+sum_digits = calculate_sum_of_digits(period_number)
+
+# Step 2: Get size prediction and jackpot number based on rules
+prediction, jackpot_number = get_prediction(sum_digits)
+
+# Output the results
+print(f"\nPredicted size: {prediction}")
+print(f"Jackpot Number: {jackpot_number}")
+print("\n=== Code Execution Successful ===")
